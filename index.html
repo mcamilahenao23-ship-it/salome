@@ -1,1 +1,408 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación 15 Años - Salomé</title>
 
+  <style>
+    :root{
+      --bg:#0b0b12;
+      --card:#121225cc;
+      --text:#f7f2ff;
+      --muted:#c9bddf;
+      --accent:#d9a7ff;
+      --accent2:#ff7bd1;
+      --stroke: rgba(255,255,255,.14);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(217,167,255,.35), transparent 55%),
+        radial-gradient(650px 420px at 80% 20%, rgba(255,123,209,.25), transparent 50%),
+        radial-gradient(700px 600px at 50% 90%, rgba(120,86,255,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    /* Fondo “estrellitas” */
+    .stars{
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:
+        radial-gradient(2px 2px at 15% 20%, rgba(255,255,255,.8), transparent 60%),
+        radial-gradient(1.5px 1.5px at 55% 30%, rgba(255,255,255,.6), transparent 60%),
+        radial-gradient(1.2px 1.2px at 80% 60%, rgba(255,255,255,.7), transparent 60%),
+        radial-gradient(1px 1px at 25% 70%, rgba(255,255,255,.5), transparent 60%),
+        radial-gradient(1.5px 1.5px at 65% 85%, rgba(255,255,255,.6), transparent 60%);
+      opacity:.35;
+      filter: blur(.2px);
+      animation: twinkle 6s ease-in-out infinite;
+    }
+    @keyframes twinkle{
+      0%,100%{opacity:.25}
+      50%{opacity:.45}
+    }
+
+    .wrap{
+      width:min(980px, 92vw);
+      margin:0 auto;
+      padding:34px 0 64px;
+    }
+
+    /* Hero */
+    .hero{
+      padding:32px 18px 26px;
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(18,18,37,.65), rgba(18,18,37,.35));
+      border-radius:26px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 80px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 160px at 20% 0%, rgba(217,167,255,.35), transparent 60%),
+        radial-gradient(520px 160px at 80% 0%, rgba(255,123,209,.25), transparent 55%);
+      opacity:.8;
+      pointer-events:none;
+    }
+
+    .topline{
+      position:relative;
+      display:flex; gap:12px; align-items:center; justify-content:center;
+      font-weight:650;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .badge{
+      width:10px; height:10px;
+      border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(217,167,255,.12);
+    }
+
+    .hero h1{
+      position:relative;
+      margin:8px 0 8px;
+      text-align:center;
+      font-size: clamp(34px, 6vw, 56px);
+      line-height:1.05;
+      letter-spacing:.02em;
+    }
+    .hero h1 span{
+      background: linear-gradient(135deg, #fff, var(--accent), #fff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 10px 50px rgba(217,167,255,.18);
+    }
+
+    .sub{
+      position:relative;
+      text-align:center;
+      color:var(--muted);
+      font-size: clamp(16px, 2.5vw, 20px);
+      margin:0 auto 18px;
+      max-width: 52ch;
+    }
+
+    .dateRow{
+      position:relative;
+      display:flex; flex-wrap:wrap;
+      gap:12px;
+      align-items:stretch;
+      justify-content:center;
+      margin-top:10px;
+    }
+    .pill{
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,.18);
+      border-radius:999px;
+      padding:12px 16px;
+      display:flex; gap:10px; align-items:center;
+      min-width: 220px;
+      justify-content:center;
+      backdrop-filter: blur(8px);
+    }
+    .pill b{font-size:18px}
+    .pill small{display:block; color:var(--muted); margin-top:2px}
+
+    /* Secciones */
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
+    @media (min-width: 860px){
+      .grid{grid-template-columns: 1fr 1fr;}
+    }
+
+    .card{
+      border:1px solid var(--stroke);
+      background: rgba(18,18,37,.35);
+      border-radius:22px;
+      padding:18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 50px rgba(0,0,0,.25);
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.02em;
+      display:flex; align-items:center; gap:10px;
+    }
+    .line{
+      height:1px; background: rgba(255,255,255,.12);
+      margin:12px 0;
+    }
+    .muted{color:var(--muted)}
+    .kv{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      padding:8px 0;
+      border-bottom:1px dashed rgba(255,255,255,.12);
+    }
+    .kv:last-child{border-bottom:none}
+    .kv span:first-child{color:var(--muted)}
+    .kv span:last-child{font-weight:650}
+
+    /* Botones */
+    .actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:10px;
+      justify-content:center;
+    }
+    .btn{
+      border:none;
+      cursor:pointer;
+      border-radius:14px;
+      padding:14px 18px;
+      font-weight:700;
+      letter-spacing:.01em;
+      transition: transform .15s ease, filter .15s ease;
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#130b1b;
+      box-shadow: 0 20px 60px rgba(217,167,255,.22);
+    }
+    .btn-ghost{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .btn:hover{filter: brightness(1.08)}
+
+    /* RSVP modal simple */
+    dialog{
+      border:none;
+      padding:0;
+      width:min(560px, 92vw);
+      border-radius:18px;
+      background: rgba(18,18,37,.95);
+      color:var(--text);
+      box-shadow: 0 30px 120px rgba(0,0,0,.55);
+    }
+    dialog::backdrop{
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(6px);
+    }
+    .modal{
+      padding:16px;
+    }
+    .modal h3{margin:0 0 10px; font-size:18px}
+    .field{
+      display:flex; flex-direction:column; gap:6px;
+      margin:10px 0;
+    }
+    label{color:var(--muted); font-size:13px}
+    input, textarea{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:12px;
+      padding:12px;
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:90px; resize:vertical}
+    .modal .row{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-top:12px;
+    }
+    .small-note{font-size:12px; color:var(--muted); margin-top:10px}
+    .hide{display:none}
+  </style>
+</head>
+
+<body>
+  <div class="stars"></div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="topline">
+        <span class="badge"></span>
+        Invitación digital 🎀
+      </div>
+
+      <h1><span>Quince Años</span> <br> Salomé</h1>
+
+      <p class="sub">
+        Te invitamos a celebrar los 15 años de <b>Salomé</b>. Acompáñanos en una noche llena de amor, música y recuerdos ✨
+      </p>
+
+      <div class="dateRow">
+        <div class="pill">
+          <div>📅</div>
+          <div>
+            <b>28 de noviembre</b>
+            <small>Fecha del evento</small>
+          </div>
+        </div>
+        <div class="pill">
+          <div>🕒</div>
+          <div>
+            <b>Hora por confirmar</b>
+            <small>Actualiza este texto</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top:16px;">
+        <button class="btn btn-primary" id="openRSVP">✅ Confirmar asistencia</button>
+        <a class="btn btn-ghost" href="#ubicacion">📍 Ver ubicación</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card" id="ubicacion">
+        <h2>📍 Ubicación</h2>
+        <div class="line"></div>
+
+        <div class="kv">
+          <span>Lugar</span>
+          <span>Nombre del salón / iglesia</span>
+        </div>
+        <div class="kv">
+          <span>Dirección</span>
+          <span>Colonia / Calle, Ciudad</span>
+        </div>
+        <div class="kv">
+          <span>Tip</span>
+          <span class="muted">Agrega un link a Google Maps</span>
+        </div>
+
+        <div class="actions" style="justify-content:flex-start; margin-top:12px;">
+          <a class="btn btn-ghost" target="_blank"
+             rel="noopener"
+             href="https://www.google.com/maps"
+          >🗺️ Abrir en Maps</a>
+        </div>
+      </section>
+
+      <section class="card" id="detalles">
+        <h2>🎶 Detalles</h2>
+        <div class="line"></div>
+
+        <div class="kv">
+          <span>Dress code</span>
+          <span class="muted">Semi formal (opcional)</span>
+        </div>
+        <div class="kv">
+          <span>Regalos</span>
+          <span class="muted">Opcional / o “No se requiere”</span>
+        </div>
+        <div class="kv">
+          <span>Confirmación</span>
+          <span>Antes del __/__/____</span>
+        </div>
+
+        <div class="small-note">
+          ✍️ Dime tus datos y te lo dejo con el texto final.
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Modal RSVP -->
+  <dialog id="rsvpDialog">
+    <div class="modal">
+      <h3>✅ Confirmar asistencia</h3>
+      <p class="muted" style="margin:0 0 10px;">
+        Completa tus datos y te generaremos un mensaje.
+      </p>
+
+      <div class="field">
+        <label>Tu nombre</label>
+        <input id="name" placeholder="Ej: María López" />
+      </div>
+
+      <div class="field">
+        <label>¿Asistirás?</label>
+        <textarea id="attendance" placeholder="Ej: Sí, asistiré y llevaré 1 acompañante."></textarea>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-ghost" id="closeRSVP" type="button">Cerrar</button>
+        <button class="btn btn-primary" id="sendRSVP" type="button">Enviar por WhatsApp</button>
+      </div>
+
+      <div class="small-note">
+        📌 Para que funcione: dime tu número de WhatsApp y lo conecto.
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById('rsvpDialog');
+    const openBtn = document.getElementById('openRSVP');
+    const closeBtn = document.getElementById('closeRSVP');
+
+    openBtn.addEventListener('click', () => dialog.showModal());
+    closeBtn.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const inDialog = (
+        rect.top <= e.clientY && e.clientY <= rect.bottom &&
+        rect.left <= e.clientX && e.clientX <= rect.right
+      );
+      if(!inDialog) dialog.close();
+    });
+
+    // WhatsApp (placeholder)
+    const phone = ""; // <-- PON AQUI TU NUMERO (ej: 5215512345678 sin +)
+
+    document.getElementById('sendRSVP').addEventListener('click', () => {
+      const n = document.getElementById('name').value.trim();
+      const a = document.getElementById('attendance').value.trim();
+
+      if(!phone){
+        alert("Aún no tengo tu número de WhatsApp. Pásamelo y lo conecto ✅");
+        return;
+      }
+      if(!n || !a){
+        alert("Completa tu nombre y la asistencia 🙂");
+        return;
+      }
+
+      const msg = `Hola! Soy ${n}. ${a} (Quince Años de Salomé - 28 de noviembre)`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank", "noopener");
+      dialog.close();
+    });
+  </script>
+</body>
+</html>
